@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Default Title{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-e/kwKwbl1ck+VS61+hrlGmLX9x7t8plNVaA7A/xJ2QF+1dpwux2sJF3CcgN00Zmj9PZI47fMBRb/ONNXp1rA+A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profilepic.css' %}">
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar" id="my-navbar">
+    <a href="{% url 'home' %}" class="navbarleft">Home</a>
+
+    {% if user.is_authenticated %}
+        <a href="{% url 'about' %}" class="navbarleft">About</a>
+        <a href="{% url 'edit_profile' %}" class="navbarleft">edit porfile</a>
+        <a href="{% url 'logout' %}" class="navbarright">logout</a>
+    {% else  %}
+        <a href="{% url 'login' %}" class="navbarleft">login</a>
+    {% endif %}
+  </div>
+
+    <!-- Header -->
+    <header class="header">
+        <h1>{% block header %}Default Header{% endblock %}</h1>
+    </header>
+
+    <!-- Content -->
+    <main class="content">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2023 My Blog</p>
+{#        <button id="my-button">Toggle Navbar</button>#}
+    </footer>
+
+    <!-- Scripts -->
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+.profile-picture {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.profile-picture img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform .2s ease;
+}
+
+.profile-picture:hover img {
+  transform: scale(1.2);
+}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}About Me{% endblock %}
+{%load static %}
+{% block header %}
+    關於 {{ username }}
+{% endblock %}
+{% block content %}
+
+  </div>
+    <div class="profile-picture">
+        {% if headshot %}
+          <img src="{{headshot}}">
+        {% else %}
+          <img src="{% static 'R.png' %}">
+        {% endif %}
+    </div>
+
+    <div class="container mt-5">
+        <h1>About Me</h1>
+        <p>{{ bio }}</p>
+    </div>
+{% endblock %}
